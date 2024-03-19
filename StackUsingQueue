@@ -1,0 +1,47 @@
+class MyQueue {
+    //creating two stacks
+    Stack<Integer> str1 = new Stack<>();
+    Stack<Integer> str2 = new Stack<>();
+    public MyQueue() {
+        
+    }
+    //push all the data in the stack 1
+    public void push(int x) {
+        str1.push(x);
+        
+    }
+    //if stack 2 is empty loop till stack1 is empty and pop the elements from stack1 and push them in stack 2
+    public int pop() {
+        if (str2.isEmpty()) {
+            while (!str1.isEmpty()) {
+                str2.push(str1.pop());
+            }
+        }
+        //pop elemnts from stk2
+        return str2.pop();
+        
+    }
+    public int peek() {
+       if(str2.isEmpty()){
+            while (!str1.isEmpty()) {
+                str2.push(str1.pop());
+            }
+       }
+        return str2.peek();
+       
+        
+    }
+    //returns true ifstack is empty
+    public boolean empty() {
+        return str2.isEmpty() && str1.isEmpty();
+    }
+}
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
+ */
