@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        if(n<=0) //if n is zero return false
+        {
+            return false;
+        }
+        while(n%4==0)//looping till n is divided by 4 is true
+        {
+            n=n/4;//true divide by 4
+        }
+        return n==1;
+    }
+}
